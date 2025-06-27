@@ -18,7 +18,7 @@ return new class extends Migration
              */
             $productRepo = app(\Callmeaf\Product\App\Repo\Contracts\ProductRepoInterface::class);
             $table->string('product_slug');
-            $table->foreign('product_slug')->references($productRepo->getModel()->getRouteKeyName())->on($productRepo->getTable())->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreign('product_slug')->references($productRepo->getModel()->getKeyName())->on($productRepo->getTable())->cascadeOnUpdate()->cascadeOnDelete();
             $table->longText('content');
             $table->timestamps();
         });
